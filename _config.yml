@@ -1,0 +1,66 @@
+#
+###################################
+# Site wide configuration
+####################################
+#
+title: Blogilreavy
+email: paul@mcilreavy.com
+description: dotnet and the other things.
+url: https://blog.mcilreavy.com # the base hostname & protocol for your site
+keywords: ["C#", "dotnet"]
+
+#
+###################################
+# Jekyll configuration
+####################################
+#
+timezone:          Australia/Brisbane
+markdown:          kramdown
+highlighter:       rouge
+excerpt_separator: <!--more-->
+permalink:         /articles/:year-:month/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+#
+###################################
+# Site Owner configuration
+####################################
+#
+owner:
+  name: Paul Mcilreavy
+  avatar: me.jpg
+  job: "A software developer @ Readify"
+  bio: "dotnet and the other things."
+  #email: paul@mcilreavy.com
+  disqus-shortname: blogilreavy
+  twitter: pmcilreavy #username
+  google:
+    plus: #username
+    analytics: UA-92546532-1
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: pmcilreavy #username
+  stackoverflow: 88289/pmcilreavy   #from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: pmcilreavy #username
+  xing: #username
+  #instagram: pmcilreavy
+  #lastfm: thefallenidol
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  #flickr: fallenidol
+  codepen: #username
+  telegram: #username

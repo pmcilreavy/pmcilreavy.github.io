@@ -21,6 +21,7 @@
     position: relative;
     margin: 2em auto 1em;
     .archive-year {
+      color: $primary;
       margin-left: 1em;
       &:before {
         content: " ";
