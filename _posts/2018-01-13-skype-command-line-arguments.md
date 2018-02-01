@@ -13,7 +13,7 @@ I often find myself needing to run multiple instances of skype at the same time,
 
 
 ## The Solution
-Well it turns out that the skype executable supports several command line options that can allow you to launch mutiple instances using different accounts. It's worth noting that this only applies to the desktop version of skype. There doesn't appear to a solution for the Windows 10 (or UWP) version of skype at the current time.
+Well it turns out that the skype executable supports several command line options that can allow you to launch mutiple instances using different accounts. It's worth noting that this only applies to the desktop version of skype. There doesn't appear to a solution for the Windows 10 (or UWP) version of skype at the current time. It also does not seem to work with Lync or Skype for business.
 
 The [skype support page](https://support.skype.com/en/faq/fa171/can-i-run-skype-for-windows-desktop-from-the-command-line) details the following command line parameters: -
 
