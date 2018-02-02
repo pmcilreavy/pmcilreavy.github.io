@@ -6,7 +6,7 @@
 title: Blogilreavy
 email: paul@mcilreavy.com
 description: On dotnet and the other things.
-url: //blog.mcilreavy.com # the base hostname & protocol for your site
+url: https://blog.mcilreavy.com # the base hostname & protocol for your site
 keywords: ["C#", "dotnet"]
 
 #
