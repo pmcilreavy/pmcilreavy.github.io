@@ -6,6 +6,7 @@ date: 2018-01-27
 categories: [c#, dotnet, operations manager]
 comments: true
 share: true
+firehose: true
 ---
 
 # The Problem
