@@ -6,10 +6,8 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', '{{ site.owner.google.analytics }}', {
-  'linker': {
-    'domains': ['mcilreavy.com','blog.mcilreavy.com']
-  }
-});
+
+  gtag('config', '{{ site.owner.google.analytics }}');
 </script>
+
 {% endif %}
