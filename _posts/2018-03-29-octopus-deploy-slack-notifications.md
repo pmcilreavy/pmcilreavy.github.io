@@ -2,7 +2,7 @@
 layout: post
 title: Using an Azure function to get Octopus deployment notifications in Slack
 excerpt: "If you want to be notified in Slack when an Octopus deployment occurs it's not just as simple as plugging in a the Slack webhook url into Octopus. You need to use an intermediary that can translate the Octopus json format into the Slack json format. This post gives a high-level overview of how an Azure function can be used to do this."
-date: 2018-03-27
+date: 2018-03-29
 categories: [octopus deploy, deployment, slack, azure, azure functions, dotnet]
 comments: true
 share: true
