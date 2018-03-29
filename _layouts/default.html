@@ -12,11 +12,12 @@
     </div>
     <div class="col s12 m9">
       <div class="post-listing">
-        {{ content }}
-        {% include footer.html %}
+        <div style="max-width:800px;">
+          {{ content }} {% include footer.html %}</div>
       </div>
     </div>
   </div>
   {% include js.html %}
 </body>
+
 </html>
