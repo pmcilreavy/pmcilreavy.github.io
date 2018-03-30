@@ -208,4 +208,4 @@ I've deliberately not shown much (if any) of the actual Azure function code in t
 
 * There is an Octopus add-in which can post a message direct to a Slack channel but it's something you have to configure for every project as a step in the project deployment process. This wasn't feasible for me as we have hundreds of individual projects and I didn't want to have to modify them all.
 
-* I believe Octopus is working on changes that will be available in future release which may allow you to use a Slack webhook url directly from a subscription without the need for an intermediary so I'll keep a lookout for that. For now, my Azure function solution is working well for me.
+* I believe Octopus Deploy is [talking about making Slack integration a first class citizen](https://github.com/OctopusDeploy/Issues/issues/3395) and may allow use directly from a subscription without the need for an intermediary so I'll keep a lookout for that. For now, my Azure function solution is working well for me.
