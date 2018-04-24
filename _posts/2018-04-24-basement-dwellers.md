@@ -9,7 +9,7 @@ share: true
 firehose: true
 ---
 
-Most of us will be familiar with the _[IT Crowd](https://en.wikipedia.org/wiki/The_IT_Crowd)_. If you've never seen it you should definitely check it out. It's pretty funny. It does though rely on the stereotype all us IT folk work in dingy basement offices and rarely get out into the real world. Other people with cooler, non-IT, jobs pity us, you see, because we somehow aren't living life to its fullest.
+Most of us will be familiar with the _[IT Crowd](https://en.wikipedia.org/wiki/The_IT_Crowd)_. If you've never seen it you should definitely check it out. It's pretty funny. It does though rely on the stereotype that all us IT folk work in dingy basement offices and rarely get out into the real world. Other people with cooler, non-IT, jobs pity us, you see, because we somehow aren't living life to its fullest.
 
 I can be guilty of perpetuating this. Often when someone asks me what I do for a living I'll just say, "IT stuff". I shouldn't though and I feel like this view of people in our profession is really an anachronism and one that I'm not sure has ever been true.
 
@@ -29,7 +29,7 @@ We become part of these companies. We are there for the extended periods of time
 
 &nbsp;
 
-Just thinking about some of my own experiences: I helped create a system to manage patients through a cancer screening process; I've written code that is used every day by officers of the Queensland Police Service. If you're lucky enough get stopped by one of them with an iPad then you'll be interacting with a system I had a hand in writing; I've also debugged and tested code in a neonatal intensive care unit, which is a challenging environment to say the least. The sight of the very ill new borns is upsetting. They are often connected to several machines and may have tubes in their nose or down their throat. They will often be crying and the parents, when they visit, will often be crying. It was though a very rewarding experience and one that I'm glad to have had. There are not many other professions that allow you to interact with people on such a personal level. We get to do it every day, either in person or via the software we create.
+Just thinking about some of my own experiences: I helped create a system to manage patients through a cancer screening process; I've written code that is used every day by officers of the Queensland Police Service. If you're lucky enough get stopped by one of them with an iPad then you'll be interacting with a system I had a hand in writing; I've also debugged and tested code in a neonatal intensive care unit, which is a challenging environment to say the least. The sight of the very ill new-borns is upsetting. They are often connected to several machines and may have tubes in their nose or down their throat. They will often be crying and the parents, when they visit, will often be crying. It was though a very rewarding experience and one that I'm glad to have had. There are not many other professions that allow you to interact with people on such a personal level. We get to do it every day, either in person or via the software we create.
 
 &nbsp;
 > ### There are not many other professions that allow you to interact with people on such a personal level. We get to do it every day, either in person or via the software we create.
