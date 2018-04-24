@@ -17,7 +17,7 @@ I can be guilty of perpetuating this. Often when someone asks me what I do for a
 
 As developers, contractors, consultants and people in the IT industry in general, we get to work in a much wider variety of companies and working environments. More so than many other professions. One month we might be working at a big financial company with a top floor office and great views of the city. A few months later we might be working in a more _modest_ government organisation. More often than not, we're front and centre while these companies are going through some big changes, and we will more than likely be delivering software that fundamentally changes how the company operates. There are not many other professions that offer this ability to affect change. We don't work in literal basements and we don't work in metaphorical basements.
 
->#### We don't work in literal basements and we don't work in metaphorical basements.
+>### We don't work in literal basements and we don't work in metaphorical basements.
 
 We become part of these companies. We are there for the extended periods of time. We gain a great deal of domain knowledge and get a feel for what it would be like to have a career in these different industries. We become friends with the staff. We go for lunch with them, we go on nights out with them, we see new hires come on board and we see people leaving or retiring. We get to know what it's like to be an employee in these companies and we're constantly communicating with the stakeholders to make sure we're delivering the maximum value we can. We literally couldn't do this job if we conformed to the stereotype. Not if we hope to get paid.
 
