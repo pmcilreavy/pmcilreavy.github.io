@@ -36,13 +36,15 @@ Just thinking about some of my own experiences: I helped create a system to mana
 
 &nbsp;
 
-As developers these days, we are writing code that runs in increasingly diverse environments and as technology evolves our job is going to be less about the typical screen and keyboard experience and more about interacting with users in more personal ways. I'm talking about MR, VR, bots, conversational UI, autonomous vehicles. It's hard to think of an aspect of our lives that isn't somehow reached by software. As developers we are at the heart of all these interactions. So it's kind of crazy to me to portray developers and IT folk as people who are somehow lacking in life experience when the job we have offers up such a diverse range of them every day. More so than most professions, and more so than professions that don't have such a stereotype attached.
+As developers these days, we are writing code that runs in increasingly diverse environments and as technology evolves our job is going to be less about the typical screen and keyboard experience and more about interacting with users in more personal ways. I'm thinking about MR, VR, bots and conversational UI. 
+
+It's hard to think of an aspect of our lives that isn't somehow reached by software. As developers we are at the heart of all these interactions. So, it's kind of crazy to me to portray developers and IT folk as people who are somehow lacking in life experience when the job we have offers up such a diverse range of them every day. More so than most professions, and more so than professions that don't have such a stereotype attached.
 
 &nbsp;
 > ### We write code to solve interesting problems for interesting people in interesting places.
 
 &nbsp;
 
-We write code to solve interesting problems for interesting people in interesting places. Many other jobs seem to me to be much more limited in their scope for meeting new people and don't offer nearly as many opportunities to contribute back to the community and to society as we have. So, the next time your mate says _it must be boring to be stuck at a desk all day_ you should challenge them and say something like _actually you've been **stuck** at 3 different desks this week and one of them was a in a neonatal intensive care unit_.
+We write code to solve interesting problems for interesting people in interesting places. Many other jobs seem to me to be much more limited in their scope for meeting new people and don't offer nearly as many opportunities to contribute back to the community and to society as we have.
 
 When someone asks you what you do for a living, please, don't just say "IT stuff".
