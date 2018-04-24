@@ -9,7 +9,7 @@ share: true
 firehose: true
 ---
 
-Most of us will be familiar with the _[IT Crowd](https://en.wikipedia.org/wiki/The_IT_Crowd)_. If you've never seen it you should definitely check it out. It's pretty funny. It does though rely on the stereotype that all us IT folk work in dingy basement offices and rarely get out into the real world. Other people with cooler, non-IT, jobs pity us, you see, because we somehow aren't living life to its fullest.
+Most of us will be familiar with the _[IT Crowd](https://en.wikipedia.org/wiki/The_IT_Crowd)_. If you've never seen it you should definitely check it out. It's pretty funny. It does though rely on the stereotype that all us IT folk work in dingy basement offices and rarely get out into the real world. Other people with cooler non-IT jobs pity us, you see, because we somehow aren't living life to its fullest.
 
 I can be guilty of perpetuating this. Often when someone asks me what I do for a living I'll just say, "IT stuff". I shouldn't though and I feel like this view of people in our profession is really an anachronism and one that I'm not sure has ever been true.
 
