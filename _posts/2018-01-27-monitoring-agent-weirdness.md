@@ -37,7 +37,7 @@ After having been tested and deployed through various environments the problem a
 # The Investigation
 The dlls deployed to each environment were identical and were promoted and controlled via *Octopus Deploy* so I was relatively confident that it was something specific to the PROD environment itself that was causing the problem.
 
-In order to try and establish where this transitive reference to *Microsoft.WindowsAzure.StorageClient* was coming from, I wrote a stand alone single page asp.net forms app which replicated the recursive assembly loading logic but also wrote out the results in a hierachical html table structure. This web page gave me the following output in *production*:
+In order to try and establish where this transitive reference to *Microsoft.WindowsAzure.StorageClient* was coming from, I wrote a stand alone single page asp.net forms app which replicated the recursive assembly loading logic but also wrote out the results in a hierarchical html table structure. This web page gave me the following output in *production*:
 
 ### *Production Output*
 <img src="..\..\img\prod.PNG" alt="Production" title="Production">
