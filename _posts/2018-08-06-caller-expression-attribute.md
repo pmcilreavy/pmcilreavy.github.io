@@ -2,7 +2,7 @@
 layout: post
 title: The CallerArgumentExpression Attribute in C# 8.0
 excerpt: "An exploration of how the new C# 8 CallerArgumentExpression attribute could enhance my open source 'GuardAgainst' library."
-date: 2018-08-05
+date: 2018-08-06
 categories: [C#]
 comments: true
 share: true
