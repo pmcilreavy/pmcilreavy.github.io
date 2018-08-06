@@ -17,7 +17,7 @@ Microsoft now develops _all the things_ in the open and so detailed design specs
 
 So let me tell you about a small, unambitious project I have on GitHub called _[GuardAgainst](https://github.com/pmcilreavy/GuardAgainst)_. It's a library to make writing guard clauses for your methods trivial.
 
-<img src="..\..\img\callerexpressionatrribute\guardagainst.png" title="GuardAgainst" style="width: 80%"/>
+<img src="https://blog.mcilreavy.com/img/callerexpressionatrribute/guardagainst.png" title="GuardAgainst" style="width: 80%"/>
 
 Methods are contracts. They accept arguments, do _stuff_ with them and potentially return a value. If a method cannot meet the contract based on the given arguments it should throw an appropriate exception. 
 

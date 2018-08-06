@@ -40,12 +40,12 @@ The dlls deployed to each environment were identical and were promoted and contr
 In order to try and establish where this transitive reference to *Microsoft.WindowsAzure.StorageClient* was coming from, I wrote a stand alone single page asp.net forms app which replicated the recursive assembly loading logic but also wrote out the results in a hierarchical html table structure. This web page gave me the following output in *production*:
 
 ### *Production Output*
-<img src="..\..\img\prod.PNG" alt="Production" title="Production">
+<img src="https://blog.mcilreavy.com/img/prod.PNG" alt="Production" title="Production">
 
 This allowed me to see, if we follow the green arrows from left to right, that *System.ServiceModel.Web* has a reference to *System.Web.Extensions* which has a reference to *System.Data.Services.Client* which has (you still with me) a reference to *Microsoft.EnterpriseManagement.OperationsManager.Apm.DataCollecting.Producers.Azure.1.6* which has a reference to the offending *Microsoft.WindowsAzure.StorageClient* dll which was failing to load.
 
 ### *Test Output*
-<img src="..\..\img\test.PNG" alt="Test" title="Test">
+<img src="https://blog.mcilreavy.com/img/test.PNG" alt="Test" title="Test">
 
 On *test* though, as you can see from the diagram above, this is not the case. The trail of breadcrumbs ends at *System.Data.Services.Client* and there are no subsequent references to *Microsoft.EnterpriseManagement.OperationsManager.Apm.DataCollecting.Producers.Azure.1.6* and so in TEST we didn't have a problem because the code didn't attempt to load the *Microsoft.WindowsAzure.StorageClient* dll.
 
