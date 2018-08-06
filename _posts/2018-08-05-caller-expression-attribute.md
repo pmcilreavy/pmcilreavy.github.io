@@ -50,7 +50,7 @@ private static string GetFullname(string firstname, string surname)
 }
 {% endhighlight %}
 
-First we that each argument is not null. If it is we throw an `ArgumentNullException` exception. If not we then check that it's not just whitespace and if it is we throw an `ArgumentException`. This is because `ArgumentNullException` and `ArgumentException` convey different meanings and we want to be as precise as possible about why the argument does not meet the method contract. So we end up with four guard clauses. Two for each of our arguments. A developer reading this code has to mentally parse each clause and move on until they get to the actual meat of the method.
+First we check that each argument is not null. If it is we throw an `ArgumentNullException` exception. If not we then check that it's not just whitespace and if it is we throw an `ArgumentException`. This is because `ArgumentNullException` and `ArgumentException` convey different meanings and we want to be as precise as possible about why the argument does not meet the method contract. So we end up with four guard clauses. Two for each of our arguments. A developer reading this code has to mentally parse each clause and move on until they get to the actual meat of the method.
 
 _GuardAgainst_ provides a bunch of methods to reduce this code into much neater calls that are named carefully to be very readable and clearly express their intent. So the code in the above example would become this...
 
@@ -90,17 +90,17 @@ public static void ArgumentBeingNull<T>(T argumentValue,
 GuardAgainst.ArgumentBeingNull(firstname, nameof(firstname));
 {% endhighlight %}
 
-In this example we are guarding against an argument being `null` so we pass the value that we want to check: `firstname`. If  `argumentValue` isn't null that we just return. If it is null then we throw an `ArgumentNullException`. Pretty simple.
+In this example we are guarding against an argument being `null` so we pass the value that we want to check: `firstname`. If  `argumentValue` isn't null then we just return. If it is null then we throw an `ArgumentNullException`. Pretty simple.
 
 ### The Problem
 
-In order to make this useful we also need to pass in the _name_ of the argument that is null to the constructor of the exception. If we have several parameters then having the name in the exception makes it obvious which parameter caused the fault. The problem is that there is no way to get this name unless the caller of the method passes it in for us.
+In order to make this useful we also need to pass in the _name_ of the argument to the constructor of the exception. If we have several parameters then having the name in the exception makes it obvious which parameter caused the fault. The problem is that there is no way to get this name unless the caller of the method passes it in for us.
 
 I've never liked this. It's a clunky necessity that adds friction to the api. The ultimate goal is to be able to _know_ the name of argument being passed in without the developer having to actually pass it in via another argument.
 
 ### A Possible Approach
 
-One possible way I could achieve this goal right now with current C# is by making `ArgumentBeingNull` accept an `Expression<Func<T>>` and have the caller pass in an expression that evaluates to the _thing_ to be checked for null. I'd also then be able to get the string representation of that argument too.
+One possible way I could achieve this goal right now with current C# is by making `ArgumentBeingNull` accept an `Expression<Func<T>>` and have the caller pass in an expression that evaluates to the _thing_ to be checked for null. I'd also then be able to get the string representation of that argument too. Sounds good, let's have a look.
 
 {% highlight csharp %}
 public static void ArgumentBeingNull<T>(Expression<Func<T>> argumentExpression)
@@ -126,7 +126,9 @@ public static void ArgumentBeingNull<T>(Expression<Func<T>> argumentExpression)
 GuardAgainst.ArgumentBeingNull(() => firstname);
 {% endhighlight %}
 
-I've not yet added this to the GuardAgainst library as there are a couple of things I'm not overly happy about. The first is performance. This is not a huge issue based on some crude tests but it's significant enough to give me pause. Mainly though I just think forcing people to write `() => _thing_` is just as weird and awkward as making them pass in the name of the argument.
+I've not yet added this to the GuardAgainst library as there are a couple of things I'm not overly happy about. The first is performance. This is not a huge issue based on some crude tests but it's significant enough to give me pause. 
+
+The second and main reason I've not done this is I just think forcing people to write `() => _thing_` is just as weird and awkward as making them pass in the name of the argument. Clunky weirdness is what I'm trying to avoid.
 
 > The ultimate goal is to be able to _know_ the name of argument being passed in without the developer having to actually pass it in via another argument.
 
@@ -134,7 +136,7 @@ I've not yet added this to the GuardAgainst library as there are a couple of thi
 
 The new _CallerArgumentExpression_ attribute proposed for C# 8.0 would be a great solution to this problem. Now consider the following code which is identical to my initial `ArgumentBeingNull` example above except that I've added the _CallerArgumentExpression_ attribute to the `argumentName` parameter.
 
-The compiler recognises the _CallerArgumentExpression_ attribute and uses the string passed to the constructor of the attribute (i.e. `argumentValue`) to target that parameter and converts that incoming expression to a string which is assigned to the `argumentName` parameter.
+The compiler recognises the _CallerArgumentExpression_ attribute and uses the string passed to its constructor (i.e. `argumentValue`) to target that parameter and converts the incoming expression to a string which is assigned to the `argumentName` parameter.
 
 {% highlight csharp %}
 public static void ArgumentBeingNull<T>(T argumentValue,
@@ -165,6 +167,6 @@ GuardAgainst.ArgumentBeingNull(firstname, "firstname");
 
 > "Allows developers to capture the expressions passed to a method, to enable better error messages in diagnostic/testing APIs and reduce keystrokes."
 
-The _CallerArgumentExpression_ attribute is effectively giving me the `Expression<Func<T>>` solution I was toying with above but without the performance overhead and without the clunky `() => _thing_` syntax.
+The _CallerArgumentExpression_ attribute is effectively giving me the `Expression<Func<T>>` solution I was toying with but without the performance overhead and without the clunky `() => _thing_` syntax.
 
-Not only would this be a super easy code change for me, I would just need to add the _CallerArgumentExpression_ attribute and I'm done. It would also mean that callers of the library would just pass in the variable they wish to guard against being null as they've always done but they would no longer have to explicitly specify the name. Ultimate goal achieved!
+Not only would this be a super easy code change for me to implement, I would just need to add the _CallerArgumentExpression_ attribute and I'm done. It would also mean that callers of the library would just pass in the value of the argument they wish to guard against being null as they've always done but they would no longer have to explicitly specify the name. Ultimate goal achieved!
