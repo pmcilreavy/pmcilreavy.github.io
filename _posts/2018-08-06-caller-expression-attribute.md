@@ -128,7 +128,7 @@ GuardAgainst.ArgumentBeingNull(() => firstname);
 
 I've not yet added this to the GuardAgainst library as there are a couple of things I'm not overly happy about. The first is performance. This is not a huge issue based on some crude tests but it's significant enough to give me pause. 
 
-The second and main reason I've not done this is I just think forcing people to write `() => _thing_` is just as weird and awkward as making them pass in the name of the argument. Clunky weirdness is what I'm trying to avoid.
+The second and main reason I've not done this is I think forcing people to write an expression like `() => firstname` is just as weird and awkward as making them pass in the name of the argument. Clunky weirdness is what I'm trying to avoid.
 
 > The ultimate goal is to be able to _know_ the name of argument being passed in without the developer having to actually pass it in via another argument.
 
@@ -167,6 +167,6 @@ GuardAgainst.ArgumentBeingNull(firstname, "firstname");
 
 > "Allows developers to capture the expressions passed to a method, to enable better error messages in diagnostic/testing APIs and reduce keystrokes."
 
-The _CallerArgumentExpression_ attribute is effectively giving me the `Expression<Func<T>>` solution I was toying with but without the performance overhead and without the clunky `() => _thing_` syntax.
+The _CallerArgumentExpression_ attribute is effectively giving me the `Expression<Func<T>>` solution I was toying with but without the performance overhead and without the clunky `() => firstname` syntax.
 
 Not only would this be a super easy code change for me to implement, I would just need to add the _CallerArgumentExpression_ attribute and I'm done. It would also mean that callers of the library would just pass in the value of the argument they wish to guard against being null as they've always done but they would no longer have to explicitly specify the name. Ultimate goal achieved!
