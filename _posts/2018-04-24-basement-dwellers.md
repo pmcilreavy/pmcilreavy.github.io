@@ -7,13 +7,15 @@ categories: [job, speekup, career]
 comments: true
 share: true
 firehose: true
+image:
+  feature: https://blog.mcilreavy.com/img/basement-dwellers/itcrowd.jpg
 ---
 
 Most of us will be familiar with the _[IT Crowd](https://en.wikipedia.org/wiki/The_IT_Crowd)_. If you've never seen it you should definitely check it out. It's pretty funny. It does though rely on the stereotype that all us IT folk work in dingy basement offices and rarely get out into the real world. Other people with cooler non-IT jobs pity us, you see, because we somehow aren't living life to its fullest.
 
 I can be guilty of perpetuating this. Often when someone asks me what I do for a living I'll just say, "IT stuff". I shouldn't though and I feel like this view of people in our profession is really an anachronism and one that I'm not sure has ever been true.
 
-<img src="https://blog.mcilreavy.com/img/basement-dwellers\it_stuff.jpg" title="IT Stuff" style="max-width: 300px;"/>
+<img src="https://blog.mcilreavy.com/img/basement-dwellers/it_stuff.jpg" title="IT Stuff" style="max-width: 300px;"/>
 
 As developers, contractors, consultants and people in the IT industry in general, we get to work in a much wider variety of companies and working environments. More so than many other professions. One month we might be working at a big financial company with a top floor office and great views of the city. A few months later we might be working in a more _modest_ government organisation. More often than not, we're front and centre while these companies are going through some big changes, and we will more than likely be delivering software that fundamentally changes how the company operates. There are not many other professions that offer this ability to affect change. We don't work in literal basements and we don't work in metaphorical basements.
 

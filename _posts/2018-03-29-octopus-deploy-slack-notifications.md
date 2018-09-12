@@ -7,6 +7,8 @@ categories: [octopus deploy, deployment, slack, azure, azure functions, dotnet]
 comments: true
 share: true
 firehose: true
+image:
+  feature: https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications/octopus.png
 ---
 
 # Introduction
@@ -19,23 +21,23 @@ I recently had a need to alert the team when a production deployment, of the man
 
 Out of the box, Octopus has [subscriptions](https://octopus.com/docs/administration/subscriptions). A subscription allows you to define the scope of the alerts by picking which projects and events you wish to be alerted about. A subscription allows you to respond to these events in two ways: email or webhook.
 
-<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications\subscriptions-screen-example.png" title="Octopus Subscription Config Screen" style="max-width: 800px;"/>
+<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications/subscriptions-screen-example.png" title="Octopus Subscription Config Screen" style="max-width: 800px;"/>
 
 ## _Email_
 
 Pretty straight forward. When an event occurs that's within your defined scope the nominated team members will receive an email containing the details of the events.
 
-<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications\email-config.png" title="Email configuration" style="max-width: 800px;"/>
+<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications/email-config.png" title="Email configuration" style="max-width: 800px;"/>
 
 An example of the received email.
 
-<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications\octopus_email_subscription_example.png" title="Example Octopus Subscription Email" style="max-width: 800px;"/>
+<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications/octopus_email_subscription_example.png" title="Example Octopus Subscription Email" style="max-width: 800px;"/>
 
 ## _Webhook_
 
 Email is useful but a Slack notification was what I was after so the webhook option sounded ideal. Slack supports webhook integrations out of the box, unfortunately though the json format of the Octopus subscription is not directly compatible with Slack so we need an intermediary that can accept the Octopus json, transform it and pass it off to the Slack webhook url.
 
-<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications\webhook-config.png" title="Webhook configuration" style="max-width: 800px;"/>
+<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications/webhook-config.png" title="Webhook configuration" style="max-width: 800px;"/>
 
 ### Zapier
 
@@ -82,7 +84,7 @@ This is the Octopus subscription json format. Actually there was more to it than
 ### Converting to C# objects
 I was able to use [https://jsonutils.com/](https://jsonutils.com/) to convert the Octopus json into C# classes.
 
-<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications\jsonutils_config.png" title="JsonUtils Settings" style="max-width: 800px;"/>
+<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications/jsonutils_config.png" title="JsonUtils Settings" style="max-width: 800px;"/>
 
 This gave me some nice C# classes ready to go, already annotated with with Newtonsoft JsonProperty attributes.
 
@@ -143,7 +145,7 @@ So far so good. I was able to grab the incoming json string from the request and
 
 Slack has a handy api tool called the [message builder](https://api.slack.com/docs/messages/builder) that allows you to experiment with the json and see how your message will look when it's delivered to a channel. Here is roughly what I ended up with.
 
-<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications\slack_message_builder.png" title="Slack Message Builder" style="max-width: 800px;"/>
+<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications/slack_message_builder.png" title="Slack Message Builder" style="max-width: 800px;"/>
 
 
 ### Converting to C# objects
@@ -192,7 +194,7 @@ Sweet, so I'm able to build a Slack message from the Octopus object and all I ne
 No need to explain this in great detail, but generally you can just go to [https://yourteamname.slack.com/apps/manage/custom-integrations](https://yourteamname.slack.com/apps/manage/custom-integrations) and from there you can create a new webhook integration. Out of this you'll get a unique webhook url that will accept the message json and create the notification in the specified channel.
 
 Here is what my Slack notification ended up looking like...
-<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications\notification_screenshot.png" title="Slack Channel Notification" style="max-width: 800px;"/>
+<img src="https://blog.mcilreavy.com/img/octopus-deploy-slack-notifications/notification_screenshot.png" title="Slack Channel Notification" style="max-width: 800px;"/>
 
 ## Security
 

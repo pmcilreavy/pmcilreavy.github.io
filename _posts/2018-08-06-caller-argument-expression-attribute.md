@@ -7,6 +7,8 @@ categories: [C#]
 comments: true
 share: true
 firehose: true
+image:
+  feature: https://blog.mcilreavy.com/img/callerexpressionatrribute/guardagainstlogo.png
 ---
 
 I like C#. I can remember downloading the first beta and playing with C# for the first time and thinking it was a lot like Java, which made it instantly familiar to me. C# 8.0 is due soon. We don't know when, Microsoft hasn't officially announced a date yet. But if we go by the release dates of the previous major versions we could expect C# 8.0 to drop sometime in 2019.

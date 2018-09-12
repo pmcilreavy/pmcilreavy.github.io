@@ -13,7 +13,7 @@ layout: default
 
     {% if page.image.feature %}
     <div class="post-image-feature">
-      <img class="feature-image" src={% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
+      <img class="feature-image webfeedsFeaturedVisual" src={% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
         "{{ page.image.feature }}" {% else %} "{{ site.baseurl }}/img/{{ page.image.feature }}" {% endif %} alt="{{ page.title }} feature image">
 
       {% if page.image.credit %}
