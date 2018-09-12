@@ -24,8 +24,7 @@
   <meta name="twitter:title" content="{{ title }}">
   <meta name="twitter:description" content="{{ description }}">
   {% if page.image.feature %}
-  <meta name="twitter:image" content={% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
-  "{{ page.image.feature }}" {% else %} "{{ site.baseurl }}/img/{{ page.image.feature }}" {% endif %}>
+  <meta name="twitter:image" content="/img/{{ page.image.feature }}">
   {% endif %}
 
   <!-- Open Graph Tags -->
@@ -34,9 +33,7 @@
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description }}">
   {% if page.image.feature %}
-  <meta property="og:image" content={% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
-  "{{ page.image.feature }}" {% else %} "{{ site.baseurl }}/img/{{ page.image.feature }}" {% endif %}>
-  {% endif %}
+  <meta property="og:image" content="/img/{{ page.image.feature }}">
 
   <title>{{ title }}</title>
 
