@@ -12,8 +12,8 @@ layout: null
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
-    <webfeeds:cover image="{{ site.baseurl }}/img/{{ author.avatar }}" />
-    <webfeeds:icon>{{ site.baseurl }}/img/{{ author.avatar }}</webfeeds:icon>
+    <webfeeds:cover image="{{ site.baseurl }}/img/{{ site.owner.avatar }}" />
+    <webfeeds:icon>{{ site.baseurl }}/img/{{ site.owner.avatar }}</webfeeds:icon>
     <webfeeds:analytics id="{{ site.owner.google.analytics }}" engine="GoogleAnalytics"/>
     {% for post in site.posts limit:10 %}
       {% if post.firehose == true %}
