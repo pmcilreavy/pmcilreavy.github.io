@@ -50,7 +50,7 @@ layout: default
       {% else %}
       "{{ site.baseurl }}/img/{{ post.image.feature }}"
       {% endif %}
-      alt="{{ post.title }} feature image">
+      alt="{{ post.title }} feature image" style="max-height: 350px;">
 
       {% if post.image.credit %}
       <span class="image-credit">Photo Credit: <a href="{{ post.image.creditlink }}">{{ post.image.credit }}</a></span>
