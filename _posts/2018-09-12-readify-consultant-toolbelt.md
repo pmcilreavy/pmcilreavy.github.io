@@ -8,7 +8,7 @@ comments: true
 share: true
 firehose: true
 image:
-  feature: readifydevelopertoolbelt/toolbelt.png
+  feature: https://blog.mcilreavy.com/img/readifydevelopertoolbelt/toolbelt.png
 ---
 
  **tl;dr** _A curated collection of ubiquitous libraries and tools that were created by current or ex-Readify employees._
