@@ -15,6 +15,7 @@ layout: null
     <generator>Jekyll v{{ jekyll.version }}</generator>
     <webfeeds:cover image="{{ site.baseurl }}/img/{{ site.owner.avatar }}" />
     <webfeeds:icon>{{ site.baseurl }}/img/{{ site.owner.avatar }}</webfeeds:icon>
+    <webfeeds:related layout="card" target="browser"/>
     <webfeeds:analytics id="{{ site.owner.google.analytics }}" engine="GoogleAnalytics"/>
     {% for post in site.posts limit:10 %}
     <item>

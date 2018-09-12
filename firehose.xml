@@ -3,6 +3,7 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" 
+  xmlns:webfeeds="http://webfeeds.org/rss/1.0" 
   xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ site.owner.name | xml_escape }}</title>
@@ -14,6 +15,7 @@ layout: null
     <generator>Jekyll v{{ jekyll.version }}</generator>
     <webfeeds:cover image="{{ site.baseurl }}/img/{{ site.owner.avatar }}" />
     <webfeeds:icon>{{ site.baseurl }}/img/{{ site.owner.avatar }}</webfeeds:icon>
+    <webfeeds:related layout="card" target="browser"/>
     <webfeeds:analytics id="{{ site.owner.google.analytics }}" engine="GoogleAnalytics"/>
     {% for post in site.posts limit:10 %}
       {% if post.firehose == true %}
