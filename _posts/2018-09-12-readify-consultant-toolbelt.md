@@ -13,9 +13,9 @@ image:
 
  **tl;dr** _A curated collection of ubiquitous libraries and tools that were created by current or ex-Readify employees._
 
-I've lived in Brisbane for six years now and I've worked at [Readify](https://readify.net/) for almost a year. The Brisbane and Readify developer community has a rich history of producing libraries and tools, several of which you may already using. Before moving to Brisbane I was already aware of many of them, like Octopus and Serilog, but didn't realise that they came out of Brisbane and Readify. Others were new to me, and over the last year I've had fun learning about and using these tools that are fixture of a Readify consultants toolbelt 🛠.
+I moved to Brisbane 2012 and I've worked at [Readify](https://readify.net/) since 2017. Readify developers past and present have a long history of producing popular libraries and tools, several of which you may already using. Before joining Readify I was aware of a few of them, like Octopus and Serilog. Others were new to me, and over the last year I've had fun learning about and using these tools that are fixture of a Readify consultants toolbelt 🛠.
 
-The purpose of this post is just to pull to together a few of these tools, particularly the ones I've been using myself. So here they are in alphabetical order. Let me know if I've made any glaring omissions.
+The purpose of this post is just to pull to together a few of these tools, particularly the ones I've been using myself. So here they are in alphabetical order.
 
 ## Autofac
 
@@ -161,6 +161,4 @@ Behavior-driven development is your thing then this might be the framework for y
 - [Sprache](https://github.com/sprache/Sprache) _Sprache_ is a simple, lightweight library for constructing parsers directly in C# code.
 - [Tailor](https://github.com/andrewabest/Tailor) A set of convention tests to make sure your Dapper queries adhere to certain good practices.
 
-Maybe you have a library think you think everyone should be using? Readify is always on the look out for talented developers. If you're interested in finding out more you can [express your interest here](https://join.readify.net/?source=StaffReferral&campaign=paul.mcilreavy) to get your journey started.
-
-_Toolbelt image by R Diepenheim from the Noun Project_
+_Toolbelt image by R Diepenheim from the Noun Project._
