@@ -1,6 +1,6 @@
 {
-    "name": "{{ title }}",
-    "short_name": "",
+    "name": "Blogilreavy | On dotnet and the other things.",
+    "short_name": "Blogilreavy",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
