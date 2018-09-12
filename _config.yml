@@ -3,9 +3,9 @@
 # Site wide configuration
 ####################################
 #
-title: zBlogilreavy
+title: Blogilreavy
 email: paul@mcilreavy.com
-description: zOn dotnet and the other things.
+description: On dotnet and the other things.
 url: https://blog.mcilreavy.com # the base hostname & protocol for your site
 baseurl: 
 keywords: ["C#", "dotnet"]
