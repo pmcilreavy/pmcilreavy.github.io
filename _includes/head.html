@@ -23,14 +23,24 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{{ title }}">
   <meta name="twitter:description" content="{{ description }}">
-  <meta name="twitter:image" content="{{ site.url }}/img/me.png">
+  {% if page.image.feature %}
+  <meta property="twitter:image" content={% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
+  "{{ page.image.feature }}" {% else %} "{{ site.baseurl }}/img/{{ page.image.feature }}" {% endif %}">
+  {% else %}
+  <meta property="og:image" content="{{ site.url }}/img/me.png">
+  {% endif %}
 
   <!-- Open Graph Tags -->
   <meta property="og:type" content="blog">
   <meta property="og:url" content="{{ site.url }}}">
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description }}">
-  <meta property="og:image" content="{{ site.url }}/img/me.png">
+
+  {% if page.image.feature %}
+  <meta property="og:image" content={% if page.image.feature contains 'https' or page.image.feature contains 'http' %}
+  "{{ page.image.feature }}" {% else %} "{{ site.baseurl }}/img/{{ page.image.feature }}" {% endif %}">
+  {% endif %}
+
   <title>{{ title }}</title>
 
   <!-- CSS files -->
