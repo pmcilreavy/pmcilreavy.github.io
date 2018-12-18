@@ -64,7 +64,7 @@ We can imagine that if we have a web app we might want to publish an event when 
 
 Firstly, grab the url of the function you are trying to test. It usually takes the following form:
 
-`https://localhost:7071/runtime/webhooks/EventGrid?functionName=nameOfYourFunction`
+`http://localhost:7071/runtime/webhooks/EventGrid?functionName=nameOfYourFunction`
 
 We can plug this in to a new postman message, as shown in the screen-shot below. Be sure and specify POST as the verb. Also, paste in the event you wish to send in the body tab (under raw).
 
