@@ -11,6 +11,8 @@ image:
   feature: https://blog.mcilreavy.com/img/eventgridazurefunction/eventgrid_to_function.png"
 ---
 
+**tl;dr** _Just like you'd expect but the trick is to add this header (which took me a long time to track down in the docs): `aeg-event-type` = `Notification`_
+
 Azure Functions can be invoked in response to various different [trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) types. In this post we'll look at how to locally debug an Azure Function that is configured with an [Event Grid trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid).
 
 [Azure Event Grid](https://azure.microsoft.com/en-au/services/event-grid/) is analogous to SNS (Simple Notification Service) in AWS. It offers a simple event system which operates on a push-push model (rather than push-pull). Event Grid uses [topics](https://docs.microsoft.com/en-us/azure/event-grid/concepts). Events are published to a topic and subscribers receive the events from the topic. This model facilitates reactive programming and works great with Azure Logic apps and Azure Functions.
