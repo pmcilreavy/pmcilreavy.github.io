@@ -6,7 +6,7 @@ date: 2018-12-18
 categories: [C#, azure event grid, azure function, serverless]
 comments: true
 share: true
-firehose: false
+firehose: true
 image:
   feature: https://blog.mcilreavy.com/img/eventgridazurefunction/eventgrid_to_function.png"
 ---
