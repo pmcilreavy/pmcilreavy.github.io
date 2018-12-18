@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Debugging an Event Grid Triggered Azure Function with Postman
-excerpt: "How to use Postman to debug an Azure Function that has an Event Grid Trigger."
+title: Locally Debugging an Event Grid Triggered Azure Function with Postman
+excerpt: "How to use Postman to locally debug an Azure Function that has an Event Grid Trigger."
 date: 2018-12-18
 categories: [C#, azure event grid, azure function, serverless]
 comments: true
@@ -16,6 +16,8 @@ Azure Functions can be invoked in response to various different [trigger](https:
 [Azure Event Grid](https://azure.microsoft.com/en-au/services/event-grid/) is analogous to SNS (Simple Notification Service) in AWS. It offers a simple event system which operates on a push-push model (rather than push-pull). Event Grid uses [topics](https://docs.microsoft.com/en-us/azure/event-grid/concepts). Events are published to a topic and subscribers receive the events from the topic. This model facilitates reactive programming and works great with Azure Logic apps and Azure Functions.
 
 Event Grid is deeply integrated into Azure. Many of Azure's services can publish events to an Event Grid topic. For example, a blob storage container can publish an event whenever an image is uploaded. An Azure Function could then subscribe to this event and be used to resize and compress the image.
+
+Anyway, since an Event Grid topic is not something that can be run locally, it can make debugging the Azure Function that subscribes to a topic a bit challenging at times. First let's quickly look at the structure of an event.
 
 ## Structure of an Event Grid Event
 
@@ -60,9 +62,9 @@ We can imagine that if we have a web app we might want to publish an event when 
 
 [Postman](https://www.getpostman.com/) is a well-known application that can be used for testing api endpoints and is great for constructing json and POSTing it to an endpoint. We can use postman to test an Event Grid triggered Azure Function as follows: -
 
-Firstly, grab the url of the function you are trying to test. You'll find this in the Azure portal. It usually takes the following form:
+Firstly, grab the url of the function you are trying to test. It usually takes the following form:
 
-`https://functionAppName.azurewebsites.net/runtime/webhooks/EventGrid?functionName=nameOfYourFunction`
+`https://localhost:7071/runtime/webhooks/EventGrid?functionName=nameOfYourFunction`
 
 We can plug this in to a new postman message, as shown in the screen-shot below. Be sure and specify POST as the verb. Also, paste in the event you wish to send in the body tab (under raw).
 
@@ -72,11 +74,10 @@ Then we need to switch to the Headers tab and add 3 headers:
 
 - `Content-Type` = `application/json`
 - `aeg-event-type` = `Notification`
-- `x-functions-key` = `<You can get this code from the Azure portal under the Manage section of your function>`
 
 <img src="https://blog.mcilreavy.com/img/eventgridazurefunction/postman_screenshot_2.png" title="Message headers"/>
 
-That is it! You should now be able to send the message to the Azure function and receive a 202 (Accepted) successful response.
+That is it! Now set a breakpoint on your Azure Function solution and hit F5. Then send the Postman message and your breakpoint should be hit. When the Azure function completes it should return a 202 (Accepted) response back to Postman.
 
 Depending on what you're testing, it's likely that you'll want to supply a new value for `id` and `eventTime` each time you send the message. It gets a bit tedious doing this by hand each time so you can utilise postman's _pre-request script_ feature to set a couple of variables that we can substitute in the body of the message.
 
