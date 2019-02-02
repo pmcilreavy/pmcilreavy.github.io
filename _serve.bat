@@ -1,6 +1,6 @@
 
 cd "%~dp0"
 
-jekyll serve --livereload
+bundle exec jekyll serve
 
 pause

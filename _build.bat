@@ -1,6 +1,6 @@
 
 cd "%~dp0"
 
-jekyll b --incremental
+bundle exec jekyll build
 
 pause
