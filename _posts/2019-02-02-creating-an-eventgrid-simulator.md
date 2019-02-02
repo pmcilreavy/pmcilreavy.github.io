@@ -8,7 +8,7 @@ comments: true
 share: true
 firehose: true
 image:
-  feature: https://blog.mcilreavy.com/img/azureeventgridsimulator/eventgridsimulator.png"
+  feature: https://blog.mcilreavy.com/img/azureeventgridsimulator/eventgridsimulator.png
 ---
 
 _**tl;dr**_ Some notes on creating an Azure Evend Grid simulator. It's on GitHub @ [https://github.io/pmcilreavy/AzureEventGridSimulator](https://github.io/pmcilreavy/AzureEventGridSimulator)
@@ -29,15 +29,15 @@ At a high level the publishing application would send events to an Event Grid to
 Azure functions can be tested and run locally (as can several other Azure services: Cosmos Db, Storage) and obviously SQL server can run locally but there is no way to run Azure Event Grid locally. What I wanted to be able to do was run the entire solution _offline_. In other words, publish an event to a local Event Grid topic and have that push the event to my locally running Azure function subscriber which in turn would insert that into my locally running SQL server.
 
 ## Existing Options
-I looked into a couple of existing open source projects such as https://github.com/Azure/eventgrid-emulator and https://github.com/ravinsp/eventgrid-emulator but I quickly ruled them out for a few reasons:
+I looked into a couple of existing open source projects such as [github.com/Azure/eventgrid-emulator](https://github.com/Azure/eventgrid-emulator) and [github.com/ravinsp/eventgrid-emulator](https://github.com/ravinsp/eventgrid-emulator) but I quickly ruled them out for a few reasons:
 
-### https://github.com/Azure/eventgrid-emulator 
+### [github.com/Azure/eventgrid-emulator](https://github.com/Azure/eventgrid-emulator)
 
 This one seems to be in Microsoft's Azure repo so I initially had high hopes that this was the _official_ solution. It's written in _Go_ which I only have limited knowledge of. I made stab at trying to compile it but pretty quickly gave up. There's no documenation and seemed like it wasn't actively being developed.
 
-### https://github.com/ravinsp/eventgrid-emulator
+### [github.com/ravinsp/eventgrid-emulator](https://github.com/ravinsp/eventgrid-emulator)
 
-I'm a bit fuzzy on the distinction between _simulate_ and _emulate_. But in my mind to _emulate_ something is **stronger** that _simulate_. A simulation is a best approximation. A Nintendo _emulator_ would need to exactly replicate the hardware platform if it had any hope of running the orginal game code. So when I found this Event Grid **Emulator** project it seemed like what I was looking for. It does work well for simpleer use cases, like if you only intend to test over _http_ and not _https_ and you are using your own custom code to post your events to a topic. However, Azure Event Grid only supports connections over https and the 'official' Azure Event Grid client is in a nuget package called 'Microsoft.EventGrid.Client' and it only sends events over https. So an _emulator_ that doesn't support _https_ didn't seem like the right choice.
+I'm a bit fuzzy on the distinction between _simulate_ and _emulate_. But in my mind to _emulate_ something is **stronger** that _simulate_. A simulation is a best approximation. A Nintendo _emulator_ would need to exactly replicate the hardware platform if it had any hope of running the orginal game code. So when I found this Event Grid **Emulator** project it seemed like what I was looking for. It does work well for simpleer use cases, like if you only intend to test over _http_ and not _https_ and you are using your own custom code to post your events to a topic. However, Azure Event Grid only supports connections over https and the 'official' Azure Event Grid client is in a nuget package called `Microsoft.EventGrid.Client` and it only sends events over https. So an _emulator_ that doesn't support _https_ didn't seem like the right choice.
 
 So I decided it would be a fun project to create my own.
 
@@ -45,17 +45,17 @@ So I decided it would be a fun project to create my own.
 
 ### Topics
 
-My _simulator_ would need to support the creation of multiple topics and each topic would need to support multiple subscribers. The topic endpoint should follow that of a _real_ one. i.e. support https and be in the form _https://<topic-name>.localhost:<port>/api/events._
+My _simulator_ would need to support the creation of multiple topics and each topic would need to support multiple subscribers. The topic endpoint should follow that of a _real_ one. i.e. support https and be in the form _https://topic-name.localhost:port/api/events._
 
 ### Subscribers
 
 In my case I only needed to support one type of subscriber: an Azure function (i.e. webhook). Initially, this is all the simulator will support. 
 
-A topic can have 0 to _n_ subscribers. When a request is received for a topic, the events will be forwarded to each of the subscribers with the addition of an `aeg-event-type: Notification` header. If the message contains multiple events, they will be sent to each subscriber one at a time inline with the Azure Event Grid behaviour. _"Event Grid sends the events to subscribers in an array that has a single event. This behavior may change in the future."_ https://docs.microsoft.com/en-us/azure/event-grid/event-schema
+A topic can have 0 to _n_ subscribers. When a request is received for a topic, the events will be forwarded to each of the subscribers with the addition of an `aeg-event-type: Notification` header. If the message contains multiple events, they will be sent to each subscriber one at a time inline with the Azure Event Grid behaviour. _"Event Grid sends the events to subscribers in an array that has a single event. This behavior may change in the future."_ 
 
 ### Https
 
-As we've already discussed, Azure Event Grid only supports https connections and so I decided that if I was going to create a simultor, that it should support https and therefore be compatible with the https-only 'Microsoft.EventGrid.Client' nuget package. The simulator uses the dotnet development certificate to secure each topic port. You can ensure that this certifcate is installed by running the following command.
+As we've already discussed, Azure Event Grid only supports https connections and so I decided that if I was going to create a simultor, that it should support https and therefore be compatible with the https-only `Microsoft.EventGrid.Client` nuget package. The simulator uses the dotnet development certificate to secure each topic port. You can ensure that this certifcate is installed by running the following command.
 
 ``` dotnet dev-certs https```
 
@@ -67,7 +67,7 @@ A topic is secured by a 'key'. In order to publish an event to Event Grid you ne
 
 2) **aeg-sas-header**: This is the Microsoft recommended way and involves combing the key with some other information such an expiry date and hashing it into a signature. This means we can set a time limit on the hashed key we send so that even if they message was compromised in transit an attacker would only have a limited time to exploit it and the key itself is not passed as clear text.
 
-I wanted to ensure that my simulator was able to support both of these forms of key and could validate them when a new event as received. More information on `sas token` can be found here https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#sas-tokens.
+I wanted to ensure that my simulator was able to support both of these forms of key and could validate them when a new event as received. More information on `sas token` can be found here [https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#sas-tokens](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#sas-tokens).
 
 If the incoming request contains either an `aeg-sas-token` or an `aeg-sas-key` header _and_ there is a `Key` configured for the topic then the simulator will validate the key and reject the request if the value in the header is not valid. If you want to skip the validation then set the `Key` to _null_ in `appsettings.json`.
 
@@ -90,9 +90,9 @@ Ensures that the properties of each event meets the minimum requirements.
 |DataVersion|_Optional_. e.g. `1`.|
 |Data|_Optional_. Any custom object.|
 
-## Coding It
+## Approach
 
-My initial stab at it started a new `TcpListener` on a distinct port for each topic. Although this worked well it involved a lot of boiler plate code. In order to support https. It also required that an `netsh` command be run from an elevated command prompt to map the certificate to each port the app needed to listen on prior to running the app. I felt this was a step to far and would make it less usable. I wanted something that _just worked ™_.
+My initial iteration of the code started a new `TcpListener` on a distinct port for each topic. Although this worked well it involved a lot of boiler plate code. In order to support https. It also required that an `netsh` command be run from an elevated command prompt to map the certificate to each port the app needed to listen on prior to running the app. I felt this was a step to far and would make it less usable. I wanted something that _just worked ™_.
 
 I decided to refactor to use asp.net core and kestrel to host the https endpoints and make use of the development certificates that most developers will already have installed on their machines.
 
