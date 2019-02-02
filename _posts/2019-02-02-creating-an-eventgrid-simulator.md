@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Creating an Azure Event Grid Simulator
-excerpt: "Some notes on creating an Azure Event Grid Simulator."
+excerpt: "Some notes creating an Azure Event Grid Simulator in order to make local integration testing a whole lot easier."
 date: 2019-02-02
 categories: [C#, azure event grid]
 comments: true
@@ -11,7 +11,7 @@ image:
   feature: https://blog.mcilreavy.com/img/azureeventgridsimulator/eventgridsimulator.png
 ---
 
-_**tl;dr**_ Some notes on creating an Azure Evend Grid simulator. It's on GitHub @ [https://github.io/pmcilreavy/AzureEventGridSimulator](https://github.io/pmcilreavy/AzureEventGridSimulator)
+_**tl;dr**_ Some notes creating an Azure Event Grid Simulator in order to make local integration testing a whole lot easier. It's on GitHub @ [https://github.io/pmcilreavy/AzureEventGridSimulator](https://github.io/pmcilreavy/AzureEventGridSimulator)
 
 ## What is Azure Event Grid?
 
