@@ -28,7 +28,7 @@
     content={% if page.image.feature contains 'https' or page.image.feature contains 'http' %} "{{ page.image.feature }}"
     {% else %} "{{ site.baseurl }}/img/{{ page.image.feature }}" {% endif %} />
   {% else %}
-  <meta name="twitter:image" content="{{ page.url | replace:'index.html','' | prepend: site.url }}/favicon-32x32.png" />
+  <meta name="twitter:image" content="{{ page.url | replace:'index.html','' | prepend: site.url }}favicon-32x32.png" />
   {% endif %}
 
   <!-- Open Graph Tags -->
@@ -41,7 +41,7 @@
     content={% if page.image.feature contains 'https' or page.image.feature contains 'http' %} "{{ page.image.feature }}"
     {% else %} "{{ site.baseurl }}/img/{{ page.image.feature }}" {% endif %} />
   {% else %}
-  <meta name="og:image" content="{{ page.url | replace:'index.html','' | prepend: site.url }}/favicon-32x32.png" />
+  <meta name="og:image" content="{{ page.url | replace:'index.html','' | prepend: site.url }}favicon-32x32.png" />
   {% endif %}
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
