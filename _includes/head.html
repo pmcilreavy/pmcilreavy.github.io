@@ -28,7 +28,7 @@
     content={% if page.image.feature contains 'https' or page.image.feature contains 'http' %} "{{ page.image.feature }}"
     {% else %} "{{ site.baseurl }}/img/{{ page.image.feature }}" {% endif %} />
   {% else %}
-  <meta name="twitter:image" content="/favicon-32x32.png" />
+  <meta name="twitter:image" content="{{ site.baseurl }}/favicon-32x32.png" />
   {% endif %}
 
   <!-- Open Graph Tags -->
