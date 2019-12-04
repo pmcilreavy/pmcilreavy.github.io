@@ -9,54 +9,54 @@ layout: default
       <span class="post-date">
         {{ post.date | date: "%-d %b %Y" | upcase }}
       </span>
-      {% if post.categories.size > 0 %}
-      •
-      {% for cat in post.categories %}
-        <a class="post-cat" href="{{ site.baseurl }}/categories/#{{ cat }}">{{ cat }}</a>
-        {% unless forloop.last %}
-        <span>/</span>
-        {% endunless %}
-      {% endfor %}
-      {% endif %}
+      {% if post.categories.size > 0 %} • {% for cat in post.categories %}
+      <a class="post-cat" href="{{ site.baseurl }}/categories/#{{ cat }}"
+        >{{ cat }}</a
+      >
+      {% unless forloop.last %}
+      <span>/</span>
+      {% endunless %} {% endfor %} {% endif %}
     </p>
     <h4>
-      <a href="{{ site.baseurl }}{{ post.url }}" class="post-title" title="{{ post.title }}">{{ post.title }}</a>
+      <a
+        href="{{ site.baseurl }}{{ post.url }}"
+        class="post-title"
+        title="{{ post.title }}"
+        >{{ post.title }}</a
+      >
       {% if post.link %}
-      <a class="post-title-link" href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-external-link"></i></a>
+      <a
+        class="post-title-link"
+        href="{{ post.link }}"
+        target="_blank"
+        title="{{ post.title }}"
+        ><i class="fa fa-external-link"></i
+      ></a>
       {% endif %}
     </h4>
 
-    {% if post.author %}
-      {% assign author = site.data.authors[post.author] %}
-    {% else %}
-      {% assign author = site.owner %}
+    {% if post.author %} {% assign author = site.data.authors[post.author] %} {%
+    else %} {% assign author = site.owner %} {% endif %}
+  </header>
+
+  {% if post.excerpt %}
+  <div class="post-description">
+    <p>
+      {{ post.excerpt }}
+    </p>
+  </div>
+  {% endif %} {% if post.image.feature %}
+  <div class="post-image-feature">
+    <img src= {% if post.image.feature contains 'http' %} "{{ post.image.feature
+    }}" {% else %} "{{ site.baseurl }}/img/{{ post.image.feature }}" {% endif %}
+    alt="{{ post.title }} feature image"> {% if post.image.credit %}
+    <span class="image-credit"
+      >Photo Credit:
+      <a href="{{ post.image.creditlink }}">{{ post.image.credit }}</a></span
+    >
     {% endif %}
-
-    </header>
-
-    {% if post.excerpt %}
-    <div class="post-description">
-      <p>
-        {{ post.excerpt }}
-      </p>
-    </div>
-    {% endif %}
-
-    {% if post.image.feature %}
-    <div class="post-image-feature">
-      <img src=
-      {% if post.image.feature contains 'http' %}
-      "{{ post.image.feature }}"
-      {% else %}
-      "{{ site.baseurl }}/img/{{ post.image.feature }}"
-      {% endif %}
-      alt="{{ post.title }} feature image" style="max-height: 350px;">
-
-      {% if post.image.credit %}
-      <span class="image-credit">Photo Credit: <a href="{{ post.image.creditlink }}">{{ post.image.credit }}</a></span>
-      {% endif %}
-    </div><!-- /.image-wrap -->
-    {% endif %}
-
+  </div>
+  <!-- /.image-wrap -->
+  {% endif %}
 </section>
 {% endfor %}

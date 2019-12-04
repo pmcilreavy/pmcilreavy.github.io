@@ -8,7 +8,7 @@ comments: true
 share: true
 firehose: true
 image:
-  feature: https://blog.mcilreavy.com/img/callerexpressionatrribute/guardagainst_logo.png
+  feature: callerexpressionatrribute/guardagainst_logo.png
 ---
 
 I like C#. I can remember downloading the first beta and playing with C# for the first time and thinking it was a lot like Java, which made it instantly familiar to me. C# 8.0 is due soon. We don't know when, Microsoft hasn't officially announced a date yet. But if we go by the release dates of the previous major versions we could expect C# 8.0 to drop sometime in 2019.
@@ -19,19 +19,19 @@ Microsoft now develops _all the things_ in the open and so detailed design specs
 
 So let me tell you about a small, unambitious project I have on GitHub called _[GuardAgainst](https://github.com/pmcilreavy/GuardAgainst)_. It's a library to make writing guard clauses for your methods trivial.
 
-<img src="https://blog.mcilreavy.com/img/callerexpressionatrribute/guardagainst.png" title="GuardAgainst" style="width: 80%"/>
+<img src="/img/callerexpressionatrribute/guardagainst.png" title="GuardAgainst" style="width: 80%"/>
 
-Methods are contracts. They accept arguments, do _stuff_ with them and potentially return a value. If a method cannot meet the contract based on the given arguments it should throw an appropriate exception. 
+Methods are contracts. They accept arguments, do _stuff_ with them and potentially return a value. If a method cannot meet the contract based on the given arguments it should throw an appropriate exception.
 
 Writing these _guard clauses_, that throw if arguments are not valid, is tedious work and introduces noise and clutter to the code. The goal of _GuardAgainst_ is to make writing these guard clauses concise and expressive. Consider the following simplistic example of a method that accepts two strings and concatenates them together.
 
 {% highlight csharp %}
 private static string GetFullname(string firstname, string surname)
 {
-    if (firstname is null)
-    {
-        throw new ArgumentNullException(nameof(firstname), "Firstname is required.");
-    }
+if (firstname is null)
+{
+throw new ArgumentNullException(nameof(firstname), "Firstname is required.");
+}
 
     if (string.IsNullOrWhiteSpace(firstname))
     {
@@ -49,6 +49,7 @@ private static string GetFullname(string firstname, string surname)
     }
 
     return $"{firstname} {surname}";
+
 }
 {% endhighlight %}
 
@@ -59,10 +60,11 @@ _GuardAgainst_ provides a bunch of methods to reduce this code into much neater 
 {% highlight csharp %}
 private static string GetFullname(string firstname, string surname)
 {
-    GuardAgainst.ArgumentBeingNullOrWhitespace(firstname, nameof(firstname), "Firstname is required.");
-    GuardAgainst.ArgumentBeingNullOrWhitespace(surname, nameof(surname), "Surname is required.");
+GuardAgainst.ArgumentBeingNullOrWhitespace(firstname, nameof(firstname), "Firstname is required.");
+GuardAgainst.ArgumentBeingNullOrWhitespace(surname, nameof(surname), "Surname is required.");
 
     return $"{firstname} {surname}";
+
 }
 {% endhighlight %}
 
@@ -76,15 +78,16 @@ Here is a _simplified_ example of what a typical guard method in the library loo
 
 {% highlight csharp %}
 public static void ArgumentBeingNull<T>(T argumentValue,
-                                        string argumentName = default(string))
-    where T : class
+string argumentName = default(string))
+where T : class
 {
-    if (argumentValue != null)
-    {
-        return;
-    }
+if (argumentValue != null)
+{
+return;
+}
 
     throw new ArgumentNullException(argumentName);
+
 }
 {% endhighlight %}
 
@@ -92,7 +95,7 @@ public static void ArgumentBeingNull<T>(T argumentValue,
 GuardAgainst.ArgumentBeingNull(firstname, nameof(firstname));
 {% endhighlight %}
 
-In this example we are guarding against an argument being `null` so we pass the value that we want to check: `firstname`. If  `argumentValue` isn't null then we just return. If it is null then we throw an `ArgumentNullException`. Pretty simple.
+In this example we are guarding against an argument being `null` so we pass the value that we want to check: `firstname`. If `argumentValue` isn't null then we just return. If it is null then we throw an `ArgumentNullException`. Pretty simple.
 
 ### The Problem
 
@@ -106,9 +109,9 @@ One possible way I could achieve this goal right now with current C# is by makin
 
 {% highlight csharp %}
 public static void ArgumentBeingNull<T>(Expression<Func<T>> argumentExpression)
-    where T : class
+where T : class
 {
-    var argumentValue = argumentExpression.Compile().Invoke();
+var argumentValue = argumentExpression.Compile().Invoke();
 
     if (argumentValue != null)
     {
@@ -121,6 +124,7 @@ public static void ArgumentBeingNull<T>(Expression<Func<T>> argumentExpression)
     var argumentValueString = valueMatch.Success ? expressionBody.Remove(valueMatch.Value) : expressionBody;
 
     throw new ArgumentNullException(null, $"'{argumentValueString}' was null!");
+
 }
 {% endhighlight %}
 
@@ -128,7 +132,7 @@ public static void ArgumentBeingNull<T>(Expression<Func<T>> argumentExpression)
 GuardAgainst.ArgumentBeingNull(() => firstname);
 {% endhighlight %}
 
-I've not yet added this to the GuardAgainst library as there are a couple of things I'm not overly happy about. The first is performance. This is not a huge issue based on some crude tests but it's significant enough to give me pause. 
+I've not yet added this to the GuardAgainst library as there are a couple of things I'm not overly happy about. The first is performance. This is not a huge issue based on some crude tests but it's significant enough to give me pause.
 
 The second and main reason I've not done this is I think forcing people to write an expression like `() => firstname` is just as weird and awkward as making them pass in the name of the argument. Clunky weirdness is what I'm trying to avoid.
 
@@ -142,16 +146,17 @@ The compiler recognises the _CallerArgumentExpression_ attribute and uses the st
 
 {% highlight csharp %}
 public static void ArgumentBeingNull<T>(T argumentValue,
-                                        [CallerArgumentExpression("argumentValue")] 
-                                        string argumentName = default(string))
-    where T : class
+[CallerArgumentExpression("argumentValue")]
+string argumentName = default(string))
+where T : class
 {
-    if (argumentValue != null)
-    {
-        return;
-    }
+if (argumentValue != null)
+{
+return;
+}
 
     throw new ArgumentNullException(argumentName);
+
 }
 {% endhighlight %}
 

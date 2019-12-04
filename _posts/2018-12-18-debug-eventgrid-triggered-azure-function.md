@@ -8,7 +8,7 @@ comments: true
 share: true
 firehose: true
 image:
-  feature: https://blog.mcilreavy.com/img/eventgridazurefunction/eventgrid_to_function.png"
+  feature: eventgridazurefunction/eventgrid_to_function.png"
 ---
 
 **tl;dr** _Just like you'd expect but the trick is to add this header (which took me a long time to track down in the docs): `aeg-event-type` = `Notification`_
@@ -70,24 +70,24 @@ Firstly, grab the url of the function you are trying to test. It usually takes t
 
 We can plug this in to a new postman message, as shown in the screen-shot below. Be sure and specify POST as the verb. Also, paste in the event you wish to send in the body tab (under raw).
 
-<img src="https://blog.mcilreavy.com/img/eventgridazurefunction/postman_screenshot_1.png" title="Message body"/>
+<img src="/img/eventgridazurefunction/postman_screenshot_1.png" title="Message body"/>
 
 Then we need to switch to the Headers tab and add 3 headers:
 
 - `Content-Type` = `application/json`
 - `aeg-event-type` = `Notification`
 
-<img src="https://blog.mcilreavy.com/img/eventgridazurefunction/postman_screenshot_2.png" title="Message headers"/>
+<img src="/img/eventgridazurefunction/postman_screenshot_2.png" title="Message headers"/>
 
 That is it! Now set a breakpoint on your Azure Function solution and hit F5. Then send the Postman message and your breakpoint should be hit. When the Azure function completes it should return a 202 (Accepted) response back to Postman.
 
 Depending on what you're testing, it's likely that you'll want to supply a new value for `id` and `eventTime` each time you send the message. It gets a bit tedious doing this by hand each time so you can utilise postman's _pre-request script_ feature to set a couple of variables that we can substitute in the body of the message.
 
-<img src="https://blog.mcilreavy.com/img/eventgridazurefunction/postman_screenshot_3.png" title="Pre-request script"/>
+<img src="/img/eventgridazurefunction/postman_screenshot_3.png" title="Pre-request script"/>
 
 The `id` and `eventTime` can be substituted as follows.
 
-<img src="https://blog.mcilreavy.com/img/eventgridazurefunction/postman_screenshot_4.png" title="Variable substitution"/>
+<img src="/img/eventgridazurefunction/postman_screenshot_4.png" title="Variable substitution"/>
 
 ## An Alternative Method Using NGrok
 
