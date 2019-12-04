@@ -34,7 +34,7 @@ Ideally, you want your dev loop to be as short as possible otherwise insights an
 
 A [snapshot](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server) of a Sql Server database is a _point-in-time_ copy of a source Sql Server database.
 
-<img src="/img/db-snapshots/ssms-snapshots.png" title="Snapshot"/>
+<img src="/img/db-snapshots/ssms-snapshots.png" title="Snapshot" style="max-width: 100px;"/>
 
 A snapshot is somewhat similar to a `.bak` or `.bacpac` backup, in so much as they are all _copies_ of the database. These methods though involve exporting a copy of the source database to a file which you can later restore when needed.
 
@@ -88,7 +88,7 @@ To find the names of your data files you can run the following `SELECT` statemen
 SELECT [name] FROM [sys].[master_files] WHERE [database_id] = DB_ID('WideWorldImporters') AND [type] = 0;
 ```
 
-<img src="/img/db-snapshots/data-file-names.png" title="Data File Names"/>
+<img src="/img/db-snapshots/data-file-names.png" title="Data File Names" style="max-width: 100px;"/>
 
 ## Restoring from a Snapshot
 
