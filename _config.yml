@@ -7,19 +7,20 @@ title: Blogilreavy
 email: paul@mcilreavy.com
 description: On dotnet and the other things.
 url: https://blog.mcilreavy.com # the base hostname & protocol for your site
-baseurl: 
+baseurl:
 keywords: ["C#", "dotnet"]
+future: true
 
 #
 ###################################
 # Jekyll configuration
 ####################################
 #
-timezone:          Australia/Brisbane
-markdown:          kramdown
-highlighter:       rouge
+timezone: Australia/Brisbane
+markdown: kramdown
+highlighter: rouge
 excerpt_separator: <!--more-->
-permalink:         /articles/:year-:month/:title
+permalink: /articles/:year-:month/:title
 
 kramdown:
   auto_ids: true
@@ -49,7 +50,7 @@ owner:
     ad-slot:
   bing-verify:
   github: pmcilreavy #username
-  stackoverflow: 88289/pmcilreavy   #from a "http://stackoverflow.com/users/123456/username" link
+  stackoverflow: 88289/pmcilreavy #from a "http://stackoverflow.com/users/123456/username" link
   linkedin: pmcilreavy #username
   xing: #username
   instagram: pmcilreavy
