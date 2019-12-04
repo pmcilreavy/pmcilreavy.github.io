@@ -9,7 +9,7 @@ share: true
 firehose: true
 published: true
 image:
-  feature: /db-snapshots/sql-server-snapshot.png
+  feature: /db-snapshots/ssms-snapshots.png
 ---
 
 _**tl;dr**_ Sql Server Snapshots are a useful feature to reduce the pain of breaking changes when switching branches or when debugging scenarios that require complex data setups.
@@ -34,7 +34,7 @@ Ideally, you want your dev loop to be as short as possible otherwise insights an
 
 A [snapshot](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-snapshots-sql-server) of a Sql Server database is a _point-in-time_ copy of a source Sql Server database.
 
-<img src="/img/db-snapshots/sql-server-snapshot.png" title="Snapshot"/>
+<img src="/img/db-snapshots/ssms-snapshots.png" title="Snapshot"/>
 
 A snapshot is somewhat similar to a `.bak` or `.bacpac` backup, in so much as they are all _copies_ of the database. These methods though involve exporting a copy of the source database to a file which you can later restore when needed.
 
