@@ -2,7 +2,7 @@
 layout: post
 title: Keep your dev loop as short as possible with Sql Server Snapshots
 excerpt: "How to make use of Sql Server Snapshots to keep your dev loop as short as possible."
-date: 2019-12-03
+date: 2019-12-04
 categories: [C#, sql-server, debugging]
 comments: true
 share: true
