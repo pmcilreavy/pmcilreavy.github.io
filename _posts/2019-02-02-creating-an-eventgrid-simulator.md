@@ -11,7 +11,7 @@ image:
   feature: azureeventgridsimulator/eventgridsimulator.png
 ---
 
-_**tl;dr**_ Some notes creating an Azure Event Grid Simulator in order to make local integration testing a whole lot easier. It's on GitHub @ [https://github.io/pmcilreavy/AzureEventGridSimulator](https://github.io/pmcilreavy/AzureEventGridSimulator)
+_**tl;dr**_ Some notes creating an Azure Event Grid Simulator in order to make local integration testing a whole lot easier. It's on GitHub @ [https://github.com/pmcilreavy/AzureEventGridSimulator](https://github.com/pmcilreavy/AzureEventGridSimulator)
 
 ## What is Azure Event Grid?
 
@@ -149,6 +149,6 @@ _Data.json_
 
 ## Feature Development
 
-I'm pretty happy with v1 so far. It's on GitHub @ https://github.io/pmcilreavy/AzureEventGridSimulator. I've identified a few more features I'd like to add to fill in some of the holes in functionality. Mainly around filtering and retries.
+I'm pretty happy with v1 so far. It's on GitHub @ https://github.com/pmcilreavy/AzureEventGridSimulator. I've identified a few more features I'd like to add to fill in some of the holes in functionality. Mainly around filtering and retries.
 
 Thanks for reading.
