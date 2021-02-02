@@ -6,7 +6,7 @@ date: 2021-02-03
 categories: [productivity, sql-server]
 comments: true
 share: true
-firehose: false
+firehose: true
 published: true
 image:
   feature: ssms-high-dpi/before.png
