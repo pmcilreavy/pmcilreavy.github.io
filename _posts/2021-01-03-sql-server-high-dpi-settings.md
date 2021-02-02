@@ -1,15 +1,13 @@
 ---
 layout: post
 title: How to fix SSMS high DPI issues
-excerpt: "How to fix SSMS high DPI scaling issues."
+excerpt: "A short note to my future self on how to fix SSMS high DPI scaling issues."
 date: 2021-02-03
 categories: [productivity, sql-server]
 comments: true
 share: true
 firehose: true
 published: true
-image:
-  feature: ssms-high-dpi/before.png
 ---
 
 _**tl;dr**_ This is a short note (mostly to my future self) on how to fix SQL Server Management Studio (SSMS) so that it doesn't look awful on high DPI screens.
