@@ -16,11 +16,11 @@ _**tl;dr**_ This is a short note (mostly to my future self) on how to fix SQL Se
 
 I have a 4k monitor scaled at 150%. These are my preferred display settings.
 
-<img src="/img/ssms-high-dpi/scale_and_layout.png" title="Scale and Layout Settings" style="max-width: 300px;"/>
+<img src="/img/ssms-high-dpi/scale_and_layout.png" title="Scale and Layout Settings" />
 
 When I run SSMS though I see all kinds of weirdly scaled menus, fonts and dialogs. As you can see below, the buttons are running off the edge of the dialog box.
 
-<img src="/img/ssms-high-dpi/before.png" title="Before: Buttons disappearing off the dialog" style="max-width: 400px;"/>
+<img src="/img/ssms-high-dpi/before.png" title="Before: Buttons disappearing off the dialog" />
 
 For the record, I'm using Windows 10 (20H2) and SSMS v18.8.
 
@@ -89,6 +89,6 @@ I've tried many of them and some work and some don't. Every few months/years whe
 
 When you next launch SSMS the disappearing buttons and other weird scaling issues should now be fixed.
 
-<img src="/img/ssms-high-dpi/after.png" title="After: all is well" style="max-width: 400px;"/>
+<img src="/img/ssms-high-dpi/after.png" title="After: all is well" />
 
 Thanks for reading.

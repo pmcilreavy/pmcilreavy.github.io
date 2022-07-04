@@ -15,7 +15,7 @@ Most of us will be familiar with the _[IT Crowd](https://en.wikipedia.org/wiki/T
 
 I can be guilty of perpetuating this. Often when someone asks me what I do for a living I'll just say, "IT stuff". I shouldn't though and I feel like this view of people in our profession is really an anachronism and one that I'm not sure has ever been true.
 
-<img src="/img/basement-dwellers/it_stuff.jpg" title="IT Stuff" style="max-width: 300px;"/>
+<img src="/img/basement-dwellers/it_stuff.jpg" title="IT Stuff" />
 
 As developers, contractors, consultants and people in the IT industry in general, we get to work in a much wider variety of companies and working environments. More so than many other professions. One month we might be working at a big financial company with a top floor office and great views of the city. A few months later we might be working in a more _modest_ government organisation. More often than not, we're front and centre while these companies are going through some big changes, and we will more than likely be delivering software that fundamentally changes how the company operates. There are not many other professions that offer this ability to affect change. We don't work in literal basements and we don't work in metaphorical basements.
 

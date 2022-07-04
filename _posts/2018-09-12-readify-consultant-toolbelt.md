@@ -23,7 +23,7 @@ The purpose of this post is just to pull to together a few of these tools, parti
 
 Inversion of control (IoC) is the idea that objects should not need to create the objects on which they rely. The dependencies should be provided by another external service. _Autofac_ is an IoC container for .NET applications. An IoC container is an essential part of modern software development and helps us produce _SOLID_ code, reduces coupling between components and increases the their testability.
 
-<img src="/img/readifydevelopertoolbelt/autofac_logo.png" title="Autofac" style="max-width: 100px;"/>
+<img src="/img/readifydevelopertoolbelt/autofac_logo.png" title="Autofac" />
 
 > "Autofac" is a 1955 science fiction short story by American writer Philip K. Dick that features one of the earliest treatments of self-replicating machines. It is set some years after an apocalyptic world war has devastated Earth's civilizations, leaving only a network of hardened robot "autofacs" in operation to **supply goods** to the human survivors. Once humanity has recovered enough to want to begin reconstruction, the autofacs are immediately **targeted for shutdown** since they monopolize the planet's **resources**. _[Wikipedia](https://en.wikipedia.org/wiki/Autofac)_.
 
@@ -43,7 +43,7 @@ This is where _ConfigInjector_ comes in handy. It plugs into your _IoC_ containe
 
 Writing tests can be laborious and time is often short so you need to focus on writing tests that provide the most value. You don't want to have to spend a lot of time writing, duplicating and maintaining tests that check for cross cutting concerns across your code base. There are many patterns in code that can lead to bugs or performance and testing issues. You want to prevent these from creeping into your code.
 
-<img src="/img/readifydevelopertoolbelt/conventional.png" title="Conventional" style="max-width: 100px;"/>
+<img src="/img/readifydevelopertoolbelt/conventional.png" title="Conventional" />
 
 Conventional provides a way to test for many _code smells_ and enforce desirable conventions out of the box.
 
@@ -55,7 +55,7 @@ Conventional provides a way to test for many _code smells_ and enforce desirable
 
 Retrieving code from a VCS and deploying it is relatively easy these days. Keeping a logical history of database schema changes and deploying them can still be tricky though. DbUp exists to solve this problem. You simply create each schema change as a stand alone SQL script and DbUp manages the execution and deployment of them to your various environments.
 
-<img src="/img/readifydevelopertoolbelt/dbup.png" title="DbUp" style="max-width: 250px;"/>
+<img src="/img/readifydevelopertoolbelt/dbup.png" title="DbUp" />
 
 > DbUp is a .NET library that helps you to deploy changes to SQL Server databases. It tracks which SQL scripts have been run already, and runs the change scripts that are needed to get your database up to date.
 
@@ -71,7 +71,7 @@ A simple way to generate the typescript equivalents of your C# enums. Nuff said.
 
 It's a library of static guard clauses that allow you to check that an argument passes a given validity check and if it doesn't then throw an appropriate exception. For instance, you can check if a parameter is null and throw an ArgumentNullException. Or check that a comparable parameter (e.g. a date or number) is within a specified range and throw an ArgumentOutOfRangeException if it's not. There are many other variations.
 
-<img src="/img/readifydevelopertoolbelt/guard_against.png" title="GuardAgainst" style="max-width: 80px;"/>
+<img src="/img/readifydevelopertoolbelt/guard_against.png" title="GuardAgainst" />
 
 ```csharp
 private static string GetFullname(string firstname, string surname)
@@ -95,7 +95,7 @@ Humanizer is a feature rich library that is all about making things more readabl
 DateTimeOffset.UtcNow.AddHours(1).Humanize() would become "an hour from now"
 ```
 
-<img src="/img/readifydevelopertoolbelt/humanizerlib.png" title="Humanizer" style="max-width: 80px;"/>
+<img src="/img/readifydevelopertoolbelt/humanizerlib.png" title="Humanizer" />
 
 > Humanizer meets all your .NET needs for manipulating and displaying strings, enums, dates, times, timespans, numbers and quantities. It is part of the .NET Foundation, and operates under their code of conduct.
 
@@ -105,7 +105,7 @@ DateTimeOffset.UtcNow.AddHours(1).Humanize() would become "an hour from now"
 
 Nimbus is similar to MassTransit or NServiceBus. It provides an abstraction over (primarily) Azure Service Bus and makes raising and handling messages trivial. Nimbus provides implementations of all of the common messaging patterns for building distributed, service-oriented systems. Designed to be lightweight and pluggable, it allows you to bring your choice of IoC container, logging framework, and serialization format.
 
-<img src="/img/readifydevelopertoolbelt/nimbusapi.jpg" title="Nimbus" style="max-width: 125px;"/>
+<img src="/img/readifydevelopertoolbelt/nimbusapi.jpg" title="Nimbus" />
 
 > Nimbus is a .NET client library to add an easy to develop against experience against the Azure Service Bus.
 
@@ -117,7 +117,7 @@ It's starting to fall out of favour for greenfield projects since it's not activ
 
 Started by Paul Stovell in his spare time in 2011 because he was frustrated by the state of automated deployment for .NET developers. Octopus Deploy has gone on to become the de facto solution for doing automated deployments of .NET solutions and is used by over twenty thousand customers around the world. Hopefully you're using this already.
 
-<img src="/img/readifydevelopertoolbelt/octopus_deploy.png" title="Octopus Deploy" style="max-width: 250px;"/>
+<img src="/img/readifydevelopertoolbelt/octopus_deploy.png" title="Octopus Deploy" />
 
 > Octopus Deploy is the most popular deployment automation server in the world. Over 20,000 companies use Octopus to automate .NET, Java and other application deployments to their servers.
 
@@ -129,7 +129,7 @@ Started by Paul Stovell in his spare time in 2011 because he was frustrated by t
 
 Logging libraries such as Log4Net typically write unstructured lines of text into a log file or console. Serilog also provides diagnostic logging to files, the console, and many other outputs. Unlike other logging libraries though, Serilog is built from the ground up to record _structured_ event data.
 
-<img src="/img/readifydevelopertoolbelt/serilog.png" title="Serilog" style="max-width: 100px;"/>
+<img src="/img/readifydevelopertoolbelt/serilog.png" title="Serilog" />
 
 > Serilog is a diagnostic logging library for .NET applications. It is easy to set up, has a clean API, and runs on all recent .NET platforms. While it's useful even in the simplest applications, Serilog's support for structured logging shines when instrumenting complex, distributed, and asynchronous applications and systems.
 
@@ -137,7 +137,7 @@ Parameters passed along with log messages are not destructively rendered into a 
 
 Seq is a centralised log sink for Serilog log events that understands structured log data and provides a nice UI that allows you to view the log data and perform complex queries over it.
 
-<img src="/img/readifydevelopertoolbelt/seq.png" title="Seq" style="max-width: 400px;"/>
+<img src="/img/readifydevelopertoolbelt/seq.png" title="Seq" />
 
 > _Seq is the easiest way for development teams to capture, search and visualize structured log events._
 
